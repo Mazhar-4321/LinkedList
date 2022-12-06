@@ -28,5 +28,6 @@ public class Main {
         System.out.println(list4);
         list4.deleteLastElement();
         System.out.println(list4);
+        System.out.println(list4.search(30));
     }
 }
