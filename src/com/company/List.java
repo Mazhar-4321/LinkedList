@@ -44,6 +44,27 @@ public class List<T> {
         head = head != null ? head.getNext() : null;
     }
 
+    public void deleteLastElement() {
+        INode<T> tempNode = head;
+        if (tempNode == null) {
+            return;
+        }
+        if (tempNode == tail) {
+            head = null;
+            tail = null;
+            size--;
+        }
+        while (tempNode != null) {
+            if (tempNode.getNext() == tail) {
+                tail = tempNode;
+                tempNode.setNext(null);
+                size--;
+                return;
+            }
+            tempNode = tempNode.getNext();
+        }
+    }
+
     public void remove(T item) {
         INode<T> tempNode = head;
         while (tempNode != null) {

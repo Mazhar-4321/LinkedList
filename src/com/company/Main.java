@@ -26,5 +26,7 @@ public class Main {
         System.out.println(list4);
         list4.deleteFirstElement();
         System.out.println(list4);
+        list4.deleteLastElement();
+        System.out.println(list4);
     }
 }
