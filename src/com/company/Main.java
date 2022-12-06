@@ -24,5 +24,7 @@ public class Main {
         list4.add(56);
         list4.insertBetWeenNodes(56,70,30);
         System.out.println(list4);
+        list4.deleteFirstElement();
+        System.out.println(list4);
     }
 }

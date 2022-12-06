@@ -26,18 +26,24 @@ public class List<T> {
     public void append(T item) {
         insert(size, item);
     }
-     public void insertBetWeenNodes(T item1,T item2,T item3){
+
+    public void insertBetWeenNodes(T item1, T item2, T item3) {
         INode<T> newNode = new MyNode<>(item3);
-        INode<T> tempNode=head;
-        while (tempNode.getNext()!=null){
-            if (tempNode.getKey().equals(item1)&&tempNode.getNext().getKey().equals(item2)){
+        INode<T> tempNode = head;
+        while (tempNode.getNext() != null) {
+            if (tempNode.getKey().equals(item1) && tempNode.getNext().getKey().equals(item2)) {
                 newNode.setNext(tempNode.getNext());
                 tempNode.setNext(newNode);
                 size++;
             }
-            tempNode=tempNode.getNext();
+            tempNode = tempNode.getNext();
         }
-     }
+    }
+
+    public void deleteFirstElement() {
+        head = head != null ? head.getNext() : null;
+    }
+
     public void remove(T item) {
         INode<T> tempNode = head;
         while (tempNode != null) {
@@ -86,6 +92,7 @@ public class List<T> {
             add(item);
             return;
         }
+        boolean isPositionLast = pos == size ? true : false;
         INode<T> tempNode = head;
         INode<T> newNode = new MyNode<>(item);
         while (pos > 1 && tempNode.getNext() != null) {
@@ -96,6 +103,9 @@ public class List<T> {
             newNode.setNext(tempNode != null ? tempNode.getNext() : null);
             tempNode.setNext(newNode);
             size++;
+        }
+        if (isPositionLast) {
+            tail = newNode;
         }
     }
 
