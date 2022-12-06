@@ -30,7 +30,7 @@ public class List<T> {
     public void insertAfter(T item1, T item2) {
         INode<T> tempNode = head;
         INode<T> newNode = new MyNode<>(item2);
-        while (tempNode != null) {
+        while (tempNode != null){
             if (tempNode.getKey().equals(item1)) {
                 newNode.setNext(tempNode.getNext());
                 tempNode.setNext(newNode);
