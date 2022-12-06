@@ -29,5 +29,7 @@ public class Main {
         list4.deleteLastElement();
         System.out.println(list4);
         System.out.println(list4.search(30));
+        list3.insertAfter(30,40);
+        System.out.println(list3);
     }
 }
