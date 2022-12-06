@@ -23,6 +23,10 @@ public class List<T> {
         head = newNode;
     }
 
+    public void append(T item) {
+        insert(size, item);
+    }
+
     public void remove(T item) {
         INode<T> tempNode = head;
         while (tempNode != null) {
@@ -73,13 +77,14 @@ public class List<T> {
         }
         INode<T> tempNode = head;
         INode<T> newNode = new MyNode<>(item);
-        while (pos > 0 && tempNode != null) {
+        while (pos > 1 && tempNode.getNext() != null) {
             pos--;
             tempNode = tempNode.getNext();
         }
-        if (pos == 0) {
-            newNode.setNext(tempNode.getNext());
+        if (pos == 1) {
+            newNode.setNext(tempNode != null ? tempNode.getNext() : null);
             tempNode.setNext(newNode);
+            size++;
         }
     }
 
@@ -92,16 +97,16 @@ public class List<T> {
 
     @Override
     public String toString() {
-        String data="[";
-        if(head==null){
+        String data = "[";
+        if (head == null) {
             return "[]";
         }
         INode<T> tempNode = head;
         while (tempNode.getNext() != null) {
-             data+=tempNode.getKey()+",";
+            data += tempNode.getKey() + ",";
             tempNode = tempNode.getNext();
         }
-        data+=tempNode.getKey()+"]";
+        data += tempNode.getKey() + "]";
         return data;
     }
 }

@@ -14,5 +14,10 @@ public class Main {
         list1.add(30);
         list1.add(56);
         System.out.println(list1);
+        List<Integer> list3= new List<>();
+        list3.add(56);
+        list3.append(30);
+        list3.append(70);
+        System.out.println(list3);
     }
 }
