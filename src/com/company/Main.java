@@ -19,5 +19,10 @@ public class Main {
         list3.append(30);
         list3.append(70);
         System.out.println(list3);
+        List<Integer> list4= new List<>();
+        list4.add(70);
+        list4.add(56);
+        list4.insertBetWeenNodes(56,70,30);
+        System.out.println(list4);
     }
 }

@@ -26,7 +26,18 @@ public class List<T> {
     public void append(T item) {
         insert(size, item);
     }
-
+     public void insertBetWeenNodes(T item1,T item2,T item3){
+        INode<T> newNode = new MyNode<>(item3);
+        INode<T> tempNode=head;
+        while (tempNode.getNext()!=null){
+            if (tempNode.getKey().equals(item1)&&tempNode.getNext().getKey().equals(item2)){
+                newNode.setNext(tempNode.getNext());
+                tempNode.setNext(newNode);
+                size++;
+            }
+            tempNode=tempNode.getNext();
+        }
+     }
     public void remove(T item) {
         INode<T> tempNode = head;
         while (tempNode != null) {
