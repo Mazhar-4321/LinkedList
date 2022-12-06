@@ -22,7 +22,10 @@ public class List<T> {
         newNode.setNext(head);
         head = newNode;
     }
-
+     public void delete(T element){
+        remove(element);
+         System.out.println(size);
+     }
     public void append(T item) {
         insert(size, item);
     }

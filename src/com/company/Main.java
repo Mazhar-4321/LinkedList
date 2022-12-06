@@ -31,5 +31,6 @@ public class Main {
         System.out.println(list4.search(30));
         list3.insertAfter(30,40);
         System.out.println(list3);
+        list3.delete(40);
     }
 }
