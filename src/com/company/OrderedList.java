@@ -1,26 +1,43 @@
 package com.company;
 
-public class List<T> {
+public class OrderedList<T extends Comparable<T>> {
     private INode<T> head;
     private INode<T> tail;
     private int size;
 
-    public List() {
+    public OrderedList() {
         head = null;
         tail = null;
         size = 0;
     }
 
     public void add(T item) {
-        size++;
-        INode<T> newNode = new MyNode<>(item);
-        if (head == null) {
-            head = newNode;
-            tail = newNode;
+        INode<T> tempNode=head;
+        INode<T> insertAfter=null;
+        INode<T> newNode= new MyNode<>(item);
+        while (tempNode!=null){
+            if(tempNode.getKey().compareTo(item)<=0){
+                insertAfter=tempNode;
+            }
+            tempNode=tempNode.getNext();
+        }
+        if(insertAfter==null&&head!=null){
+            newNode.setNext(head);
+            head=newNode;
+            size++;
             return;
         }
-        newNode.setNext(head);
-        head = newNode;
+        if(insertAfter==null&&head==null){
+         head=newNode;
+         tail=newNode;
+         size++;
+         return;
+        }
+        if(insertAfter==tail){
+            append(item);
+            return;
+        }
+        insertAfter(insertAfter.getKey(),item);
     }
      public void delete(T element){
         remove(element);
